@@ -1,13 +1,13 @@
 import os
 from flask import Flask, render_template, request, jsonify
 
-Salud_Virtual = Flask(__name__)
-@Salud_Virtual.route('/')
+app = Flask(__name__)
+@app.route('/')
 def index():
     return render_template('index.html')
 
 # Ruta para manejar la solicitud de IA
-@Salud_Virtual.route('/IA', methods=['POST'])
+@app.route('/IA', methods=['POST'])
 def IA():
     data = request.get_json()
     texto = data["Mensaje"].lower
@@ -41,5 +41,5 @@ def IA():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
-    Salud_Virtual.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port)
     
