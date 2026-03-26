@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Diagrama Base de Datos</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+text-align:center;
+}
+
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.tabla{
+background:white;
+border-radius:10px;
+box-shadow:0px 5px 10px rgba(0,0,0,0.2);
+margin:20px;
+padding:20px;
+width:250px;
+}
+
+.tabla h2{
+background:#3498db;
+color:white;
+padding:10px;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Diagrama del Sistema</h1>
+
+<div class="container">
+
+{% for table, fields in tables.items() %}
+
+<div class="tabla">
+
+<h2>{{table}}</h2>
+
+<ul>
+
+{% for field in fields %}
+<li>{{field}}</li>
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>
